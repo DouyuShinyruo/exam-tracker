@@ -1,6 +1,13 @@
 // pages/add/add.js
 const { searchPresetExams, groupByCategory, presetExams } = require('../../data/preset-exams')
 
+function withMonthText(exams) {
+  return exams.map(e => ({
+    ...e,
+    monthText: e.examMonths.map(m => m + '月').join('、')
+  }))
+}
+
 Page({
   data: {
     keyword: '',
@@ -12,7 +19,7 @@ Page({
 
   onLoad() {
     // Show all grouped by default
-    const groupedExams = groupByCategory(presetExams)
+    const groupedExams = groupByCategory(withMonthText(presetExams))
     this.setData({ groupedExams })
   },
 
@@ -29,11 +36,11 @@ Page({
       return
     }
 
-    const results = searchPresetExams(keyword)
+    const results = withMonthText(searchPresetExams(keyword))
     this.setData({
       searchResults: results,
       showResults: true,
-      groupedExams: results.length > 0 ? {} : {}
+      groupedExams: results.length > 0 ? groupByCategory(results) : {}
     })
   },
 

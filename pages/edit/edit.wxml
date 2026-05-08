@@ -82,12 +82,15 @@
     <!-- Region -->
     <view class="form-item">
       <text class="form-label">所在地区</text>
-      <input
-        class="form-input"
-        placeholder="如：北京市、广东省"
+      <picker
+        mode="region"
         value="{{region}}"
-        bindinput="onRegionInput"
-      />
+        bindchange="onRegionChange"
+      >
+        <view class="picker-value {{region.length > 0 ? '' : 'placeholder'}}">
+          {{region.length > 0 ? (region[0] === region[1] ? region[1] : region[0] + ' ' + region[1]) : '请选择地区'}}
+        </view>
+      </picker>
     </view>
   </view>
 

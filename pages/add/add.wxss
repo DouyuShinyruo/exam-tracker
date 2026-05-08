@@ -97,6 +97,12 @@
   color: #666;
 }
 
+.months-default {
+  font-size: 22rpx;
+  color: #1890FF;
+  margin-left: 4rpx;
+}
+
 /* No results */
 .no-results {
   text-align: center;

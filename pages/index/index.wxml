@@ -31,6 +31,7 @@
 
   <!-- Add button -->
   <view class="fab-button" bindtap="onAddExam">
-    <text class="fab-icon">+</text>
+    <view class="fab-icon-h"></view>
+    <view class="fab-icon-v"></view>
   </view>
 </view>

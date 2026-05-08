@@ -71,9 +71,19 @@
   transform: scale(0.95);
 }
 
-.fab-icon {
-  font-size: 52rpx;
-  color: #fff;
-  font-weight: 300;
-  line-height: 1;
+.fab-icon-h,
+.fab-icon-v {
+  position: absolute;
+  background-color: #fff;
+  border-radius: 2rpx;
+}
+
+.fab-icon-h {
+  width: 44rpx;
+  height: 4rpx;
+}
+
+.fab-icon-v {
+  width: 4rpx;
+  height: 44rpx;
 }

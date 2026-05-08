@@ -29,7 +29,7 @@
         </view>
         <view class="preset-months">
           <text class="months-label">通常考试月份：</text>
-          <text class="months-value">{{item.examMonths.join('、')}}月</text>
+          <text class="months-value">{{item.monthText}}</text>
         </view>
       </view>
     </view>
@@ -57,7 +57,7 @@
             </view>
             <view class="preset-months">
               <text class="months-label">通常考试月份：</text>
-              <text class="months-value">{{exam.examMonths.join('、')}}月</text>
+              <text class="months-value">{{exam.monthText}}</text>
             </view>
           </view>
         </view>

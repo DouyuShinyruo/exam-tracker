@@ -12,7 +12,7 @@ Page({
     examDate: '',
     examMonth: '',
     registrationDeadline: '',
-    region: '',
+    region: [],
     // Date picker constraints
     minDate: '',
     maxDate: '',
@@ -34,10 +34,13 @@ Page({
       // From preset selection
       const name = decodeURIComponent(options.name || '')
       const examMonths = JSON.parse(options.examMonths || '[]')
+      const defaultMonth = examMonths.length > 0 ? `${now.getFullYear()}-${String(examMonths[0]).padStart(2, '0')}` : ''
       this.setData({
         presetId: options.presetId,
         name,
         presetMonths: examMonths,
+        examDateType: 'approximate',
+        examMonth: defaultMonth,
         minDate,
         maxDate
       })
@@ -70,7 +73,7 @@ Page({
       examDate: exam.examDateType === 'exact' ? exam.examDate : '',
       examMonth,
       registrationDeadline: exam.registrationDeadline || '',
-      region: exam.region || ''
+      region: exam.region ? exam.region.split(' ').slice(0, 2) : []
     })
   },
 
@@ -99,8 +102,9 @@ Page({
     this.setData({ registrationDeadline: e.detail.value })
   },
 
-  onRegionInput(e) {
-    this.setData({ region: e.detail.value })
+  onRegionChange(e) {
+    const [province, city] = e.detail.value
+    this.setData({ region: [province, city] })
   },
 
   onClearDeadline() {
@@ -139,7 +143,7 @@ Page({
       examDate: finalExamDate,
       examDateType,
       registrationDeadline: registrationDeadline || null,
-      region: region.trim() || null,
+      region: region.length > 0 ? region.join(' ') : null,
       source: 'manual',
       sourceUrl: null,
       lastSyncAt: null,

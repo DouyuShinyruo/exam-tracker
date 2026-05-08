@@ -12,8 +12,5 @@ node_modules/
 Thumbs.db
 desktop.ini
 
-# Docs (personal)
-docs/
-
 # WeChat DevTools
 miniprogram_npm/
