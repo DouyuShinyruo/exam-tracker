@@ -1,0 +1,28 @@
+<view class="exam-card" bindtap="onTap">
+  <view class="card-header">
+    <text class="exam-name">{{exam.name}}</text>
+    <view class="status-tag" style="background-color: {{status.color}}">
+      {{status.label}}
+    </view>
+  </view>
+
+  <view class="card-body">
+    <view class="info-row">
+      <text class="info-label">考试时间：</text>
+      <text class="info-value">{{dateDisplay}}</text>
+    </view>
+    <view class="countdown-row">
+      <text class="countdown-text">{{countdownText}}</text>
+    </view>
+    <view class="info-row" wx:if="{{exam.region}}">
+      <text class="info-label">地区：</text>
+      <text class="info-value">{{exam.region}}</text>
+    </view>
+  </view>
+
+  <view class="card-footer">
+    <view class="btn-delete" catchtap="onDelete">
+      <text>删除</text>
+    </view>
+  </view>
+</view>

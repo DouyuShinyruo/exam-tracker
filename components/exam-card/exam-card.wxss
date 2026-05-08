@@ -1,0 +1,78 @@
+.exam-card {
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.08);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.exam-name {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #333;
+  flex: 1;
+  margin-right: 16rpx;
+}
+
+.status-tag {
+  font-size: 22rpx;
+  color: #fff;
+  padding: 6rpx 16rpx;
+  border-radius: 8rpx;
+  white-space: nowrap;
+}
+
+.card-body {
+  margin-bottom: 16rpx;
+}
+
+.info-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+.info-label {
+  font-size: 26rpx;
+  color: #999;
+  width: 150rpx;
+}
+
+.info-value {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.countdown-row {
+  margin: 16rpx 0;
+}
+
+.countdown-text {
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #1890FF;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: flex-end;
+  border-top: 1rpx solid #f0f0f0;
+  padding-top: 16rpx;
+}
+
+.btn-delete {
+  font-size: 24rpx;
+  color: #999;
+  padding: 8rpx 20rpx;
+}
+
+.btn-delete:active {
+  color: #FF4D4F;
+}

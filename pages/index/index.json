@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "exam-card": "/components/exam-card/exam-card"
+  },
+  "navigationBarTitleText": "考证倒计时"
+}

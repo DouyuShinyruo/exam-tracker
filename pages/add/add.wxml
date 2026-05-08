@@ -1,0 +1,79 @@
+<view class="container">
+  <!-- Search bar -->
+  <view class="search-bar">
+    <input
+      class="search-input"
+      placeholder="搜索考试名称，如：软考、司法、CPA..."
+      value="{{keyword}}"
+      bindinput="onSearchInput"
+      focus="true"
+    />
+  </view>
+
+  <!-- Search results -->
+  <view class="search-results" wx:if="{{showResults}}">
+    <view class="section-title" wx:if="{{searchResults.length > 0}}">
+      搜索结果（{{searchResults.length}}）
+    </view>
+    <view class="preset-list">
+      <view
+        class="preset-item"
+        wx:for="{{searchResults}}"
+        wx:key="id"
+        bindtap="onSelectPreset"
+        data-preset="{{item}}"
+      >
+        <view class="preset-info">
+          <text class="preset-name">{{item.name}}</text>
+          <text class="preset-category">{{item.category}}</text>
+        </view>
+        <view class="preset-months">
+          <text class="months-label">通常考试月份：</text>
+          <text class="months-value">{{item.examMonths.join('、')}}月</text>
+        </view>
+      </view>
+    </view>
+    <view class="no-results" wx:if="{{searchResults.length === 0 && keyword}}">
+      <text>没有找到相关考试</text>
+    </view>
+  </view>
+
+  <!-- Grouped list (when not searching) -->
+  <view class="grouped-list" wx:if="{{!showResults}}">
+    <block wx:for="{{groupedExams}}" wx:for-index="category" wx:for-list="exams" wx:key="category">
+      <view class="category-group">
+        <view class="category-title">{{category}}</view>
+        <view class="preset-list">
+          <view
+            class="preset-item"
+            wx:for="{{groupedExams[category]}}"
+            wx:for-item="exam"
+            wx:key="id"
+            bindtap="onSelectPreset"
+            data-preset="{{exam}}"
+          >
+            <view class="preset-info">
+              <text class="preset-name">{{exam.name}}</text>
+            </view>
+            <view class="preset-months">
+              <text class="months-label">通常考试月份：</text>
+              <text class="months-value">{{exam.examMonths.join('、')}}月</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <!-- Custom add button -->
+  <view class="custom-add-section">
+    <view class="divider">
+      <view class="divider-line"></view>
+      <text class="divider-text">或者</text>
+      <view class="divider-line"></view>
+    </view>
+    <button class="custom-add-btn" bindtap="onCustomAdd">
+      没有找到？自定义添加
+    </button>
+  </view>
+</view>

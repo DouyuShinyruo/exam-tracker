@@ -1,0 +1,98 @@
+<view class="container">
+  <view class="form-card">
+    <!-- Exam name -->
+    <view class="form-item">
+      <text class="form-label">考试名称</text>
+      <input
+        class="form-input"
+        placeholder="请输入考试名称"
+        value="{{name}}"
+        bindinput="onNameInput"
+      />
+    </view>
+
+    <!-- Date type toggle -->
+    <view class="form-item">
+      <text class="form-label">考试日期类型</text>
+      <view class="toggle-row">
+        <text class="toggle-label">大致月份</text>
+        <switch
+          checked="{{examDateType === 'approximate'}}"
+          bindchange="onDateTypeChange"
+          color="#1890FF"
+        />
+      </view>
+    </view>
+
+    <!-- Exact date picker -->
+    <view class="form-item" wx:if="{{examDateType === 'exact'}}">
+      <text class="form-label">考试日期</text>
+      <picker
+        mode="date"
+        value="{{examDate}}"
+        start="{{minDate}}"
+        end="{{maxDate}}"
+        bindchange="onExamDateChange"
+      >
+        <view class="picker-value {{examDate ? '' : 'placeholder'}}">
+          {{examDate || '请选择日期'}}
+        </view>
+      </picker>
+    </view>
+
+    <!-- Approximate month picker -->
+    <view class="form-item" wx:if="{{examDateType === 'approximate'}}">
+      <text class="form-label">考试月份</text>
+      <picker
+        mode="date"
+        value="{{examMonth}}"
+        fields="month"
+        start="{{minDate}}"
+        end="{{maxDate}}"
+        bindchange="onExamMonthChange"
+      >
+        <view class="picker-value {{examMonth ? '' : 'placeholder'}}">
+          {{examMonth || '请选择月份'}}
+        </view>
+      </picker>
+      <view class="form-hint" wx:if="{{presetMonths.length > 0}}">
+        参考月份：{{presetMonths.join('、')}}月
+      </view>
+    </view>
+
+    <!-- Registration deadline -->
+    <view class="form-item">
+      <view class="label-row">
+        <text class="form-label">报名截止日期</text>
+        <text class="clear-btn" wx:if="{{registrationDeadline}}" bindtap="onClearDeadline">清除</text>
+      </view>
+      <picker
+        mode="date"
+        value="{{registrationDeadline}}"
+        start="{{minDate}}"
+        end="{{maxDate}}"
+        bindchange="onDeadlineChange"
+      >
+        <view class="picker-value {{registrationDeadline ? '' : 'placeholder'}}">
+          {{registrationDeadline || '可留空'}}
+        </view>
+      </picker>
+    </view>
+
+    <!-- Region -->
+    <view class="form-item">
+      <text class="form-label">所在地区</text>
+      <input
+        class="form-input"
+        placeholder="如：北京市、广东省"
+        value="{{region}}"
+        bindinput="onRegionInput"
+      />
+    </view>
+  </view>
+
+  <!-- Save button -->
+  <button class="save-btn" bindtap="onSave">
+    {{isEdit ? '保存修改' : '添加考试'}}
+  </button>
+</view>

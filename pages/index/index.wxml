@@ -1,0 +1,36 @@
+<view class="container">
+  <!-- Filter tabs -->
+  <view class="filter-bar">
+    <view
+      wx:for="{{filters}}"
+      wx:key="key"
+      class="filter-tab {{currentFilter === item.key ? 'active' : ''}}"
+      bindtap="onFilterChange"
+      data-filter="{{item.key}}"
+    >
+      {{item.label}}
+    </view>
+  </view>
+
+  <!-- Exam list -->
+  <view class="exam-list" wx:if="{{!isEmpty}}">
+    <exam-card
+      wx:for="{{filteredExams}}"
+      wx:key="id"
+      exam="{{item}}"
+      bind:tap="onExamTap"
+      bind:delete="onExamDelete"
+    />
+  </view>
+
+  <!-- Empty state -->
+  <view class="empty-state" wx:if="{{isEmpty}}">
+    <text class="empty-text">还没有添加考试</text>
+    <text class="empty-hint">点击下方按钮添加你的第一个考试</text>
+  </view>
+
+  <!-- Add button -->
+  <view class="fab-button" bindtap="onAddExam">
+    <text class="fab-icon">+</text>
+  </view>
+</view>
