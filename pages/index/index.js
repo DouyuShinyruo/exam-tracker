@@ -69,6 +69,32 @@ Page({
     wx.showToast({ title: '已删除', icon: 'success' })
   },
 
+  onExamShare(e) {
+    const { exam } = e.detail
+    const { formatDate, formatMonth } = require('../../utils/date')
+    const dateStr = exam.examDateType === 'approximate'
+      ? formatMonth(exam.examDate) + '（预计）'
+      : formatDate(exam.examDate)
+    const regionStr = exam.region ? ` | ${exam.region}` : ''
+
+    wx.showActionSheet({
+      itemList: ['分享给朋友', '复制考试信息'],
+      success: (res) => {
+        if (res.tapIndex === 0) {
+          // Trigger share via button - we'll use page share
+          this._shareExam = exam
+          wx.showShareMenu({ withShareTicket: true })
+        } else if (res.tapIndex === 1) {
+          const info = `【${exam.name}】\n考试时间：${dateStr}${regionStr}`
+          wx.setClipboardData({
+            data: info,
+            success: () => wx.showToast({ title: '已复制', icon: 'success' })
+          })
+        }
+      }
+    })
+  },
+
   onAddExam() {
     wx.navigateTo({
       url: '/pages/add/add'
@@ -79,5 +105,48 @@ Page({
     wx.navigateTo({
       url: '/pages/calendar/calendar'
     })
+  },
+
+  onOpenTeams() {
+    wx.navigateTo({
+      url: '/pages/teams/teams'
+    })
+  },
+
+  onShareAppMessage() {
+    const { formatDate, formatMonth } = require('../../utils/date')
+    const exam = this._shareExam
+    if (exam) {
+      const dateStr = exam.examDateType === 'approximate'
+        ? formatMonth(exam.examDate) + '（预计）'
+        : formatDate(exam.examDate)
+      const regionStr = exam.region ? ` | ${exam.region}` : ''
+      this._shareExam = null
+      return {
+        title: `${exam.name} - ${dateStr}${regionStr}`,
+        path: '/pages/index/index'
+      }
+    }
+
+    const { exams } = this.data
+    const count = exams.length
+    const title = count > 0
+      ? `我正在追踪 ${count} 个考试，快来一起备考！`
+      : '考证倒计时 - 不再错过重要考试'
+    return {
+      title,
+      path: '/pages/index/index'
+    }
+  },
+
+  onShareTimeline() {
+    const { exams } = this.data
+    const count = exams.length
+    const title = count > 0
+      ? `考证倒计时 | 追踪 ${count} 个考试`
+      : '考证倒计时 - 不再错过重要考试'
+    return {
+      title
+    }
   }
 })

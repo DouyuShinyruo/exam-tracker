@@ -86,3 +86,17 @@
 .save-btn:active {
   background-color: #096dd9;
 }
+
+.share-btn {
+  margin-top: 20rpx;
+  background-color: #fff;
+  color: #1890FF;
+  border: 2rpx solid #1890FF;
+  border-radius: 16rpx;
+  font-size: 32rpx;
+  padding: 28rpx;
+}
+
+.share-btn:active {
+  background-color: #e6f7ff;
+}

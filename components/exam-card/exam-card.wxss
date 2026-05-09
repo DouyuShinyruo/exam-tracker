@@ -67,6 +67,17 @@
   padding-top: 16rpx;
 }
 
+.btn-share {
+  font-size: 24rpx;
+  color: #1890FF;
+  padding: 8rpx 20rpx;
+  margin-right: 16rpx;
+}
+
+.btn-share:active {
+  color: #096dd9;
+}
+
 .btn-delete {
   font-size: 24rpx;
   color: #999;

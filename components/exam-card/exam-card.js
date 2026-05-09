@@ -33,6 +33,10 @@ Component({
       this.triggerEvent('tap', { exam: this.data.exam })
     },
 
+    onShare() {
+      this.triggerEvent('share', { exam: this.data.exam })
+    },
+
     onDelete() {
       wx.showModal({
         title: '确认删除',

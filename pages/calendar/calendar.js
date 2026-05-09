@@ -141,5 +141,20 @@ Page({
     wx.navigateTo({
       url: `/pages/edit/edit?id=${exam.id}`
     })
+  },
+
+  onShareAppMessage() {
+    const { year, month } = this.data
+    return {
+      title: `${year}年${month}月考试日历 - 考证倒计时`,
+      path: '/pages/index/index'
+    }
+  },
+
+  onShareTimeline() {
+    const { year, month } = this.data
+    return {
+      title: `${year}年${month}月考试日历`
+    }
   }
 })

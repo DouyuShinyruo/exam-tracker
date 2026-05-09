@@ -1,0 +1,41 @@
+<view class="container">
+  <!-- Team list -->
+  <view class="team-list" wx:if="{{!isEmpty}}">
+    <view
+      class="team-card"
+      wx:for="{{teams}}"
+      wx:key="id"
+      bindtap="onTeamTap"
+      data-id="{{item.id}}"
+    >
+      <view class="team-header">
+        <text class="team-name">{{item.name}}</text>
+        <text class="member-count">{{item.memberCount}} 人</text>
+      </view>
+      <view class="team-info">
+        <text class="exam-name">考试：{{item.examName}}</text>
+        <text class="exam-date" wx:if="{{item.examDate}}">日期：{{item.examDate}}</text>
+      </view>
+      <view class="team-footer">
+        <text class="invite-code">邀请码：{{item.inviteCode}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- Empty state -->
+  <view class="empty-state" wx:if="{{isEmpty && !isLoading}}">
+    <text class="empty-text">还没有加入任何团队</text>
+    <text class="empty-hint">创建团队或输入邀请码加入</text>
+  </view>
+
+  <!-- Loading -->
+  <view class="loading" wx:if="{{isLoading}}">
+    <text>加载中...</text>
+  </view>
+
+  <!-- Action buttons -->
+  <view class="action-bar">
+    <button class="btn-join" bindtap="onJoinTeam">加入团队</button>
+    <button class="btn-create" bindtap="onCreateTeam">创建团队</button>
+  </view>
+</view>

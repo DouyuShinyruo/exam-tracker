@@ -1,0 +1,55 @@
+<view class="container" wx:if="{{!isLoading && team}}">
+  <!-- Team info card -->
+  <view class="team-card">
+    <view class="team-header">
+      <text class="team-name">{{team.name}}</text>
+      <text class="member-count">{{team.memberCount}} 人</text>
+    </view>
+    <view class="team-info">
+      <view class="info-row">
+        <text class="info-label">考试：</text>
+        <text class="info-value">{{team.examName}}</text>
+      </view>
+      <view class="info-row" wx:if="{{team.examDate}}">
+        <text class="info-label">日期：</text>
+        <text class="info-value">{{team.examDate}}</text>
+      </view>
+      <view class="info-row">
+        <text class="info-label">邀请码：</text>
+        <text class="info-value invite-code" bindtap="onCopyInviteCode">{{team.inviteCode}}</text>
+        <text class="copy-btn" bindtap="onCopyInviteCode">复制</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- Members list -->
+  <view class="section">
+    <text class="section-title">团队成员</text>
+    <view class="member-list">
+      <view class="member-item" wx:for="{{members}}" wx:key="id">
+        <image class="member-avatar" src="{{item.avatarUrl || '/images/default-avatar.png'}}" mode="aspectFill" />
+        <view class="member-info">
+          <text class="member-name">{{item.nickname}}</text>
+          <text class="member-join-time">加入于 {{item.joinedAt}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- Action buttons -->
+  <view class="action-section">
+    <button class="btn-share" open-type="share">邀请朋友加入</button>
+    <button class="btn-leave" bindtap="onLeaveTeam" wx:if="{{!isCreator}}">退出团队</button>
+    <button class="btn-delete" bindtap="onDeleteTeam" wx:if="{{isCreator}}">解散团队</button>
+  </view>
+</view>
+
+<!-- Loading -->
+<view class="loading" wx:if="{{isLoading}}">
+  <text>加载中...</text>
+</view>
+
+<!-- Not found -->
+<view class="empty-state" wx:if="{{!isLoading && !team}}">
+  <text class="empty-text">团队不存在</text>
+</view>

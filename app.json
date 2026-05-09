@@ -3,7 +3,10 @@
     "pages/index/index",
     "pages/add/add",
     "pages/edit/edit",
-    "pages/calendar/calendar"
+    "pages/calendar/calendar",
+    "pages/teams/teams",
+    "pages/team-detail/team-detail",
+    "pages/create-team/create-team"
   ],
   "window": {
     "navigationBarBackgroundColor": "#1890FF",

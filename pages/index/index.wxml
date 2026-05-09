@@ -20,6 +20,7 @@
       exam="{{item}}"
       bind:tap="onExamTap"
       bind:delete="onExamDelete"
+      bind:share="onExamShare"
     />
   </view>
 
@@ -32,6 +33,11 @@
   <!-- Calendar button -->
   <view class="fab-calendar" bindtap="onOpenCalendar">
     <text class="cal-icon">📅</text>
+  </view>
+
+  <!-- Teams button -->
+  <view class="fab-teams" bindtap="onOpenTeams">
+    <text class="teams-icon">👥</text>
   </view>
 
   <!-- Add button -->

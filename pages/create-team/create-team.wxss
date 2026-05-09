@@ -1,0 +1,142 @@
+.container {
+  padding: 20rpx;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.form-card {
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 10rpx 30rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.08);
+}
+
+.form-item {
+  padding: 28rpx 0;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.form-item:last-child {
+  border-bottom: none;
+}
+
+.form-label {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 16rpx;
+}
+
+.form-input {
+  font-size: 30rpx;
+  width: 100%;
+  padding: 8rpx 0;
+}
+
+.exam-input-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.select-btn {
+  font-size: 24rpx;
+  color: #1890FF;
+  margin-top: 12rpx;
+}
+
+.select-btn:active {
+  color: #096dd9;
+}
+
+.label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+
+.clear-btn {
+  font-size: 24rpx;
+  color: #FF4D4F;
+}
+
+.picker-value {
+  font-size: 30rpx;
+  color: #333;
+  padding: 8rpx 0;
+}
+
+.picker-value.placeholder {
+  color: #ccc;
+}
+
+.picker-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: flex-end;
+  z-index: 1000;
+}
+
+.picker-content {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 24rpx 24rpx 0 0;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.picker-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24rpx 30rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.picker-cancel {
+  font-size: 28rpx;
+  color: #999;
+}
+
+.picker-title {
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #333;
+}
+
+.picker-confirm {
+  font-size: 28rpx;
+  color: #1890FF;
+}
+
+.picker-view {
+  width: 100%;
+  height: 400rpx;
+}
+
+.picker-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.create-btn {
+  margin-top: 40rpx;
+  background-color: #1890FF;
+  color: #fff;
+  border-radius: 16rpx;
+  font-size: 32rpx;
+  padding: 28rpx;
+  border: none;
+}
+
+.create-btn:active {
+  background-color: #096dd9;
+}

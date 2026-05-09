@@ -51,6 +51,28 @@ db.exec(`
     exam_count INTEGER,
     FOREIGN KEY (user_id) REFERENCES users(id)
   );
+
+  CREATE TABLE IF NOT EXISTS teams (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    exam_name TEXT NOT NULL,
+    exam_date TEXT,
+    invite_code TEXT UNIQUE NOT NULL,
+    creator_id INTEGER NOT NULL,
+    max_members INTEGER DEFAULT 50,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (creator_id) REFERENCES users(id)
+  );
+
+  CREATE TABLE IF NOT EXISTS team_members (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    team_id INTEGER NOT NULL,
+    user_id INTEGER NOT NULL,
+    joined_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE(team_id, user_id),
+    FOREIGN KEY (team_id) REFERENCES teams(id),
+    FOREIGN KEY (user_id) REFERENCES users(id)
+  );
 `)
 
 module.exports = db

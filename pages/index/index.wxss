@@ -75,6 +75,30 @@
   font-size: 40rpx;
 }
 
+/* Teams FAB */
+.fab-teams {
+  position: fixed;
+  right: 40rpx;
+  bottom: 320rpx;
+  width: 80rpx;
+  height: 80rpx;
+  background-color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.12);
+  z-index: 100;
+}
+
+.fab-teams:active {
+  transform: scale(0.95);
+}
+
+.teams-icon {
+  font-size: 40rpx;
+}
+
 /* FAB button */
 .fab-button {
   position: fixed;

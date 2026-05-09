@@ -98,4 +98,9 @@
   <button class="save-btn" bindtap="onSave">
     {{isEdit ? '保存修改' : '添加考试'}}
   </button>
+
+  <!-- Share button -->
+  <button class="share-btn" open-type="share" wx:if="{{isEdit}}">
+    分享给朋友
+  </button>
 </view>

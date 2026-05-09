@@ -161,5 +161,17 @@ Page({
     }
 
     setTimeout(() => wx.navigateBack(), 1500)
+  },
+
+  onShareAppMessage() {
+    const { name, examDateType, examDate, examMonth, region } = this.data
+    const dateStr = examDateType === 'approximate'
+      ? `${examMonth}（预计）`
+      : examDate
+    const regionStr = region.length > 0 ? ` | ${region[0]} ${region[1]}` : ''
+    return {
+      title: `${name} - ${dateStr}${regionStr}`,
+      path: '/pages/index/index'
+    }
   }
 })

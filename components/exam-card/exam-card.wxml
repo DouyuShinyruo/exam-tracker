@@ -21,6 +21,9 @@
   </view>
 
   <view class="card-footer">
+    <view class="btn-share" catchtap="onShare">
+      <text>分享</text>
+    </view>
     <view class="btn-delete" catchtap="onDelete">
       <text>删除</text>
     </view>

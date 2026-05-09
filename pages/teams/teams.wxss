@@ -1,0 +1,135 @@
+.container {
+  padding: 20rpx;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding-bottom: 160rpx;
+}
+
+.team-list {
+  margin-bottom: 20rpx;
+}
+
+.team-card {
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.08);
+}
+
+.team-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+
+.team-name {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #333;
+  flex: 1;
+  margin-right: 16rpx;
+}
+
+.member-count {
+  font-size: 24rpx;
+  color: #1890FF;
+  background-color: #e6f7ff;
+  padding: 6rpx 16rpx;
+  border-radius: 8rpx;
+}
+
+.team-info {
+  margin-bottom: 16rpx;
+}
+
+.exam-name {
+  font-size: 28rpx;
+  color: #666;
+  display: block;
+  margin-bottom: 8rpx;
+}
+
+.exam-date {
+  font-size: 26rpx;
+  color: #999;
+  display: block;
+}
+
+.team-footer {
+  border-top: 1rpx solid #f0f0f0;
+  padding-top: 16rpx;
+}
+
+.invite-code {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 200rpx 0;
+}
+
+.empty-text {
+  font-size: 32rpx;
+  color: #999;
+  margin-bottom: 16rpx;
+}
+
+.empty-hint {
+  font-size: 26rpx;
+  color: #ccc;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  padding: 100rpx 0;
+  color: #999;
+  font-size: 28rpx;
+}
+
+.action-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  padding: 20rpx;
+  background-color: #fff;
+  box-shadow: 0 -2rpx 12rpx rgba(0, 0, 0, 0.08);
+}
+
+.btn-join {
+  flex: 1;
+  margin-right: 16rpx;
+  background-color: #fff;
+  color: #1890FF;
+  border: 2rpx solid #1890FF;
+  border-radius: 16rpx;
+  font-size: 30rpx;
+  padding: 24rpx;
+}
+
+.btn-create {
+  flex: 1;
+  background-color: #1890FF;
+  color: #fff;
+  border-radius: 16rpx;
+  font-size: 30rpx;
+  padding: 24rpx;
+  border: none;
+}
+
+.btn-join:active {
+  background-color: #e6f7ff;
+}
+
+.btn-create:active {
+  background-color: #096dd9;
+}

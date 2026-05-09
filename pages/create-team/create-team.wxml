@@ -1,0 +1,70 @@
+<view class="container">
+  <view class="form-card">
+    <!-- Team name -->
+    <view class="form-item">
+      <text class="form-label">团队名称</text>
+      <input
+        class="form-input"
+        placeholder="如：2026软考冲刺小队"
+        value="{{teamName}}"
+        bindinput="onTeamNameInput"
+      />
+    </view>
+
+    <!-- Exam name -->
+    <view class="form-item">
+      <text class="form-label">考试名称</text>
+      <view class="exam-input-row">
+        <input
+          class="form-input"
+          placeholder="请输入或选择考试"
+          value="{{examName}}"
+          bindinput="onExamNameInput"
+        />
+        <view class="select-btn" bindtap="onSelectExam" wx:if="{{exams.length > 0}}">
+          从我的考试选择
+        </view>
+      </view>
+    </view>
+
+    <!-- Exam date (optional) -->
+    <view class="form-item">
+      <view class="label-row">
+        <text class="form-label">考试日期（可选）</text>
+        <text class="clear-btn" wx:if="{{examDate}}" bindtap="onClearExamDate">清除</text>
+      </view>
+      <picker
+        mode="date"
+        value="{{examDate}}"
+        start="{{minDate}}"
+        end="{{maxDate}}"
+        bindchange="onExamDateChange"
+      >
+        <view class="picker-value {{examDate ? '' : 'placeholder'}}">
+          {{examDate || '可留空'}}
+        </view>
+      </picker>
+    </view>
+  </view>
+
+  <!-- Exam picker modal -->
+  <view class="picker-modal" wx:if="{{showExamPicker}}" bindtap="onPickerCancel">
+    <view class="picker-content" catchtap="">
+      <view class="picker-header">
+        <text class="picker-cancel" bindtap="onPickerCancel">取消</text>
+        <text class="picker-title">选择考试</text>
+        <text class="picker-confirm">确定</text>
+      </view>
+      <picker-view class="picker-view" bindchange="onExamPickerChange">
+        <picker-view-column>
+          <view class="picker-item" wx:for="{{exams}}" wx:key="id">
+            {{item.name}}
+          </view>
+        </picker-view-column>
+      </picker-view>
+    </view>
+  </view>
+
+  <!-- Create button -->
+  <button class="create-btn" bindtap="onCreate">创建团队</button>
+</view>

@@ -12,6 +12,8 @@
 - **日历视图** — 月历展示考试分布，点击日期查看详情
 - **云端同步** — 微信登录后数据多设备同步
 - **消息推送** — 考试临近和报名截止提醒
+- **社交分享** — 分享给好友、分享到朋友圈
+- **组队考证** — 创建团队、邀请好友、一起备考
 
 ## 技术栈
 
@@ -56,7 +58,10 @@ npm run dev
 │   ├── index/                        # 首页（考试列表）
 │   ├── add/                          # 添加考试
 │   ├── edit/                         # 编辑考试
-│   └── calendar/                     # 日历视图
+│   ├── calendar/                     # 日历视图
+│   ├── teams/                        # 团队列表
+│   ├── team-detail/                  # 团队详情
+│   └── create-team/                  # 创建团队
 └── server/                           # 后端服务
     ├── app.js                        # Express 入口
     ├── db.js                         # SQLite 数据库
@@ -64,7 +69,8 @@ npm run dev
     │   ├── exams.js                  # 考试 CRUD
     │   ├── preset-exams.js           # 预设考试
     │   ├── auth.js                   # 微信登录
-    │   └── sync.js                   # 数据同步
+    │   ├── sync.js                   # 数据同步
+    │   └── teams.js                  # 团队管理
     └── services/
         ├── crawler.js                # 考试信息爬虫
         ├── scheduler.js              # 定时任务
