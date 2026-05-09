@@ -1,5 +1,5 @@
 // data/preset-exams.js
-const presetExams = [
+const defaultPresetExams = [
   // 计算机类
   {
     id: 'preset_001',
@@ -258,6 +258,21 @@ const presetExams = [
     description: '心理咨询师职业资格考试'
   }
 ]
+
+// Load presets from local storage (synced from backend) or use defaults
+function getPresets() {
+  try {
+    const synced = wx.getStorageSync('presetExams')
+    if (synced && synced.length > 0) {
+      return synced
+    }
+  } catch (e) {
+    console.error('Failed to load synced presets:', e)
+  }
+  return defaultPresetExams
+}
+
+const presetExams = getPresets()
 
 // 获取所有类别
 function getCategories() {

@@ -84,6 +84,24 @@ async function getLastSyncTime() {
   return request('/sync/last')
 }
 
+async function getPresetLastUpdate() {
+  return request('/preset-exams/last-update')
+}
+
+async function syncPresets() {
+  const remoteUpdate = await getPresetLastUpdate()
+  const localLastUpdate = wx.getStorageSync('presetsLastUpdate')
+
+  if (remoteUpdate.lastUpdate && remoteUpdate.lastUpdate !== localLastUpdate) {
+    const presets = await getPresetExams()
+    wx.setStorageSync('presetExams', presets)
+    wx.setStorageSync('presetsLastUpdate', remoteUpdate.lastUpdate)
+    return { updated: true, count: presets.length }
+  }
+
+  return { updated: false }
+}
+
 module.exports = {
   getExams,
   getExamById,
@@ -95,5 +113,7 @@ module.exports = {
   searchPresetExams,
   getPresetExamById,
   syncExams,
-  getLastSyncTime
+  getLastSyncTime,
+  getPresetLastUpdate,
+  syncPresets
 }
