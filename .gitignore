@@ -14,3 +14,9 @@ desktop.ini
 
 # WeChat DevTools
 miniprogram_npm/
+
+# Database
+*.db
+*.db-shm
+*.db-wal
+*.db-journal
