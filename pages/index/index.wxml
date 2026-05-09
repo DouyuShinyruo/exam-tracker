@@ -29,6 +29,11 @@
     <text class="empty-hint">点击下方按钮添加你的第一个考试</text>
   </view>
 
+  <!-- Calendar button -->
+  <view class="fab-calendar" bindtap="onOpenCalendar">
+    <text class="cal-icon">📅</text>
+  </view>
+
   <!-- Add button -->
   <view class="fab-button" bindtap="onAddExam">
     <view class="fab-icon-h"></view>

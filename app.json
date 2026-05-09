@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/add/add",
-    "pages/edit/edit"
+    "pages/edit/edit",
+    "pages/calendar/calendar"
   ],
   "window": {
     "navigationBarBackgroundColor": "#1890FF",

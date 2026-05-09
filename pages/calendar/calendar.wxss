@@ -1,0 +1,222 @@
+.container {
+  padding: 20rpx;
+  min-height: 100vh;
+  box-sizing: border-box;
+  background-color: #f5f5f5;
+}
+
+/* Month navigation */
+.month-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 24rpx 30rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.06);
+}
+
+.nav-btn {
+  width: 60rpx;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #f0f7ff;
+}
+
+.nav-btn:active {
+  background-color: #d6e8ff;
+}
+
+.nav-arrow {
+  font-size: 28rpx;
+  color: #1890FF;
+  font-weight: 600;
+}
+
+.month-title {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Weekday header */
+.weekday-row {
+  display: flex;
+  background-color: #fff;
+  border-radius: 16rpx 16rpx 0 0;
+  padding: 16rpx 0;
+}
+
+.weekday-cell {
+  flex: 1;
+  text-align: center;
+}
+
+.weekday-text {
+  font-size: 24rpx;
+  color: #999;
+  font-weight: 500;
+}
+
+.weekday-text.weekend {
+  color: #FF4D4F;
+}
+
+/* Calendar grid */
+.calendar-grid {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #fff;
+  border-radius: 0 0 16rpx 16rpx;
+  padding-bottom: 16rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.06);
+  margin-bottom: 20rpx;
+}
+
+.day-cell {
+  width: 14.28%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16rpx 0;
+  position: relative;
+}
+
+.day-cell.other-month {
+  opacity: 0.3;
+}
+
+.day-cell.today .day-number {
+  background-color: #1890FF;
+  color: #fff;
+  border-radius: 50%;
+}
+
+.day-cell.selected .day-number {
+  background-color: #FF4D4F;
+  color: #fff;
+  border-radius: 50%;
+}
+
+.day-number {
+  font-size: 28rpx;
+  color: #333;
+  width: 52rpx;
+  height: 52rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Exam dots */
+.exam-dots {
+  display: flex;
+  gap: 4rpx;
+  margin-top: 4rpx;
+}
+
+.exam-dot {
+  width: 8rpx;
+  height: 8rpx;
+  border-radius: 50%;
+  background-color: #1890FF;
+}
+
+/* Selected section */
+.selected-section {
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.06);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+  padding-bottom: 16rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.section-date {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+.section-count {
+  font-size: 24rpx;
+  color: #1890FF;
+  background-color: #e6f7ff;
+  padding: 4rpx 12rpx;
+  border-radius: 6rpx;
+}
+
+/* Exam list */
+.exam-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.exam-item {
+  background-color: #f8f9fa;
+  border-radius: 12rpx;
+  padding: 20rpx;
+}
+
+.exam-item:active {
+  background-color: #f0f7ff;
+}
+
+.exam-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8rpx;
+}
+
+.exam-name {
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #333;
+  flex: 1;
+  margin-right: 12rpx;
+}
+
+.status-tag {
+  font-size: 22rpx;
+  color: #fff;
+  padding: 4rpx 12rpx;
+  border-radius: 6rpx;
+  white-space: nowrap;
+}
+
+.countdown-text {
+  font-size: 26rpx;
+  color: #1890FF;
+  display: block;
+  margin-bottom: 4rpx;
+}
+
+.region-text {
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* No exam */
+.no-exam {
+  text-align: center;
+  padding: 30rpx 0;
+}
+
+.no-exam-text {
+  font-size: 26rpx;
+  color: #ccc;
+}

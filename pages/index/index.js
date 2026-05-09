@@ -73,5 +73,11 @@ Page({
     wx.navigateTo({
       url: '/pages/add/add'
     })
+  },
+
+  onOpenCalendar() {
+    wx.navigateTo({
+      url: '/pages/calendar/calendar'
+    })
   }
 })

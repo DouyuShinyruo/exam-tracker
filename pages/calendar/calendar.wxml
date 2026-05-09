@@ -1,0 +1,69 @@
+<view class="container">
+  <!-- Month navigation -->
+  <view class="month-nav">
+    <view class="nav-btn" bindtap="onPrevMonth">
+      <text class="nav-arrow">&lt;</text>
+    </view>
+    <view class="month-title">{{year}}年{{month}}月</view>
+    <view class="nav-btn" bindtap="onNextMonth">
+      <text class="nav-arrow">&gt;</text>
+    </view>
+  </view>
+
+  <!-- Weekday header -->
+  <view class="weekday-row">
+    <view class="weekday-cell" wx:for="{{weekdays}}" wx:key="*this">
+      <text class="weekday-text {{index >= 5 ? 'weekend' : ''}}">{{item}}</text>
+    </view>
+  </view>
+
+  <!-- Calendar grid -->
+  <view class="calendar-grid">
+    <view
+      class="day-cell {{item.isCurrentMonth ? '' : 'other-month'}} {{item.isToday ? 'today' : ''}} {{selectedDate === item.date ? 'selected' : ''}}"
+      wx:for="{{days}}"
+      wx:key="index"
+      bindtap="onDayTap"
+      data-date="{{item.date}}"
+      data-exams="{{item.exams}}"
+    >
+      <text class="day-number">{{item.day}}</text>
+      <view class="exam-dots" wx:if="{{item.hasExam}}">
+        <view class="exam-dot" wx:if="{{item.examCount >= 1}}"></view>
+        <view class="exam-dot" wx:if="{{item.examCount >= 2}}"></view>
+        <view class="exam-dot" wx:if="{{item.examCount >= 3}}"></view>
+      </view>
+    </view>
+  </view>
+
+  <!-- Selected day exams -->
+  <view class="selected-section" wx:if="{{selectedDate}}">
+    <view class="section-header">
+      <text class="section-date">{{selectedDate}}</text>
+      <text class="section-count" wx:if="{{selectedExams.length > 0}}">{{selectedExams.length}}场考试</text>
+    </view>
+
+    <view class="exam-list" wx:if="{{selectedExams.length > 0}}">
+      <view
+        class="exam-item"
+        wx:for="{{selectedExams}}"
+        wx:key="id"
+        bindtap="onExamTap"
+        data-exam="{{item}}"
+      >
+        <view class="exam-item-header">
+          <text class="exam-name">{{item.name}}</text>
+          <view class="status-tag" style="background-color: {{item.status.color}}">
+            {{item.status.label}}
+          </view>
+        </view>
+        <text class="countdown-text">{{item.countdownText}}</text>
+        <text class="region-text" wx:if="{{item.region}}">{{item.region}}</text>
+      </view>
+    </view>
+
+    <view class="no-exam" wx:if="{{selectedExams.length === 0}}">
+      <text class="no-exam-text">该日没有考试安排</text>
+    </view>
+  </view>
+</view>
